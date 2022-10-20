@@ -1,3 +1,21 @@
+// Algoritmo
+/**
+ * Un algoritmo informático es un conjunto de instrucciones definidas,
+ * ordenadas y acotadas para resolver un problema, realizar un cálculo o desarrollar una tarea. 
+ * Es decir, un algoritmo es un procedimiento paso a paso para conseguir un fin. 
+ * A partir de un estado e información iniciales, se siguen una serie de pasos ordenados para llegar a la solución de una situación. 
+ * 
+ * EJEMPLO Algoritmo Sumar dos numero de pseudocodigo a JavaScript:
+ *  1. guardo el primer numero
+ *  2  guardo el segundo numero
+ *  3. hago la operación de suma y guardo el resultado.
+ *  4. Muestro el resultado.
+ */
+
+const numero1 = 20; // 1. guardo el primer numero en una variable llamada numero1
+const numero2 = 3; // 2  guardo el segundo numero en una variable llamada numero2
+const resultado = numero1 + numero2; // 3. hago la operación de suma y guardo el resultado en una variable llamada resultado.
+console.log(resultado) // 4. Muestro el resultado de la suma por consola usando el metodo console.log y pasandole la variable resultado.
 
 // JAVASCRIPT (js) VS JAVA, C++, .NET >> TYPESCRIPT (ts)
 /**
