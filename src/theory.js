@@ -69,7 +69,7 @@ const numeroPi = 3.14159; // el numero Pi siempre será el mismo por lo que no t
 
 numeroPi = 24 // esto da error
 
-let numeroGoles = 0; // en cambio si almacenados algo que puede ir cambiando en el tiempo debemos permitir reasignar valores usando let
+let numeroGoles = 0; // en cambio si almacenamos algo que puede ir cambiando en el tiempo debemos permitir reasignar valores usando let
 
 numeroGoles = 1;
 
