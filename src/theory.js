@@ -73,6 +73,16 @@ let numeroGoles = 0; // en cambio si almacenamos algo que puede ir cambiando en 
 
 numeroGoles = 1;
 
+// FUNCIONES
+
+
+// OPERADORES
+
+
+// ESTRUCTURAS DE CONTROL DE FLUJO
+
+
+
 
 
    
