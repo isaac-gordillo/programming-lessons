@@ -5,7 +5,7 @@
  * Es decir, un algoritmo es un procedimiento paso a paso para conseguir un fin. 
  * A partir de un estado e información iniciales, se siguen una serie de pasos ordenados para llegar a la solución de una situación. 
  * 
- * EJEMPLO Algoritmo Sumar dos numero de pseudocodigo a JavaScript:
+ * EJEMPLO Algoritmo Sumar dos numeros de pseudocodigo a JavaScript:
  *  1. guardo el primer numero
  *  2  guardo el segundo numero
  *  3. hago la operación de suma y guardo el resultado.
