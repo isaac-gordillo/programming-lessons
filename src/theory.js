@@ -10,7 +10,11 @@
  *  2  guardo el segundo numero
  *  3. hago la operación de suma y guardo el resultado.
  *  4. Muestro el resultado.
+ * 
+ * ***LO MÁS IMPORTANTE A LA HORA DE DISEÑAR UN ALGORITMO ES CONTROLAR EL ORDEN EN EL QUE SE EJECUTAN
+ * LAS INSTRUCCIONES***,
  */
+
 
 const numero1 = 20; // 1. guardo el primer numero en una variable llamada numero1
 const numero2 = 3; // 2  guardo el segundo numero en una variable llamada numero2
@@ -62,13 +66,9 @@ console.log(resultado) // 4. Muestro el resultado de la suma por consola usando 
 
 
     [
-        'nombre',
-        'descripcion',
-        123,
-        true,                   // Arrays | Arreglos | Vectores
-        undefined,
-        {marca: 'bmw', matricula: null}
-        ['azul', 'rojo', 'amarillo'] // esto sería una Matriz o Array bidimensional
+        ('nombre', 'descripcion', 123, // Arrays | Arreglos | Vectores
+        true, undefined, {marca: 'bmw', matricula: null}
+        [('azul', 'rojo', 'amarillo')]) // esto sería una Matriz o Array bidimensional
     ]
 
 
