@@ -8,7 +8,6 @@ import {
 	takeUntil,
 	Subject,
 	tap,
-	concatMap,
 } from 'rxjs';
 
 type Scoreboard = Record<string, number>;
@@ -23,7 +22,7 @@ function runGame(options: GameOptions) {
 
 	merge(gameStreams)
 		.pipe(
-			concatMap((scoreboard) => scoreboard),
+			mergeMap((scoreboard) => scoreboard),
 			takeUntil(gamerOver$),
 		)
 		.subscribe({
