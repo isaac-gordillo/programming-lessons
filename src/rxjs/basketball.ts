@@ -8,24 +8,30 @@ import {
 	takeUntil,
 	Subject,
 	tap,
+	concatMap,
 } from 'rxjs';
 
 type Scoreboard = Record<string, number>;
 
-function runGame(scoreLimit: number) {
-	const gameStreams = setupGame('Antonio', 'Isaac', 'Kobe');
+interface GameOptions {
+	scoreLimit: number;
+}
+
+function runGame(options: GameOptions) {
+	const gameStreams = setupGame('Antonio', 'Isaac', 'Kobe', 'Pepito', 'Luka');
 	const gamerOver$ = new Subject<void>();
+
 	merge(gameStreams)
 		.pipe(
-			mergeMap((scoreboard) => scoreboard),
-			takeUntil(gamerOver$)
+			concatMap((scoreboard) => scoreboard),
+			takeUntil(gamerOver$),
 		)
 		.subscribe({
 			next(scoreboard) {
 				console.log(scoreboard);
 
 				const winner = Object.entries(scoreboard).find(
-					([_player, score]) => score >= scoreLimit
+					([_player, score]) => score >= options.scoreLimit
 				);
 
 				if (winner) {
@@ -40,15 +46,14 @@ function runGame(scoreLimit: number) {
 		});
 }
 
-runGame(3);
+runGame({scoreLimit: 3});
 
-function setupGame(
-	...playerNames: ReadonlyArray<string>
-): ReadonlyArray<Observable<Scoreboard>> {
+function setupGame(...playerNames: ReadonlyArray<string>): ReadonlyArray<Observable<Scoreboard>> {
 	const scoreboard = playerNames.reduce((scoreboard, playerName) => {
 		scoreboard[playerName] = 0;
 		return scoreboard;
-	}, {} as Scoreboard);
+	}, {} as Scoreboard); // {player1: 0, player2: 0, ...}
+
 
 	const streams = playerNames.map((playerName) =>
 		getPlayerGameStream(scoreboard, playerName)
@@ -62,7 +67,7 @@ function getPlayerGameStream(scoreboard: Scoreboard, playerName: string) {
 		tap(() => console.log(playerName, 'lanza')),
 		filter(() => {
 			const hasScored = generateRandomBoolean();
-			hasScored ? console.log(`${playerName} ha encestado`) : console.log(`${playerName} ha fallado`);;
+			hasScored ? console.log(`${playerName} has anotado :)`) : console.log(`${playerName} ha fallado el lanzamiento :(`);;
 			return hasScored;
 		}),
 		map(() => {
