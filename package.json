@@ -8,6 +8,7 @@
         "build": "tsc",
         "start": "nodemon src/main.ts",
         "start-rxjs": "nodemon src/rxjs.ts",
+        "start-basket": "nodemon src/rxjs/basketball.ts",
         "vite": "vite"
     },
     "keywords": [],
