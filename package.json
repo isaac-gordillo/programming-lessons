@@ -7,8 +7,10 @@
         "prepare": "tsc",
         "build": "tsc",
         "start": "nodemon src/main.ts",
+        "start-js": "nodemon src/main.js",
         "start-rxjs": "nodemon src/rxjs.ts",
         "start-basket": "nodemon src/rxjs/basketball.ts",
+        "start-antonio": "nodemon src/antonio.ts",
         "vite": "vite"
     },
     "keywords": [],
@@ -20,6 +22,7 @@
         }
     },
     "devDependencies": {
+        "@types/lodash": "^4.14.195",
         "@types/node": "^16.11.68",
         "husky": "^8.0.1",
         "prettier": "^2.7.1",
@@ -28,6 +31,7 @@
         "typescript": "^4.8.4"
     },
     "dependencies": {
+        "lodash": "^4.17.21",
         "nodemon": "^2.0.20",
         "rxjs": "^7.8.1",
         "vite": "^3.1.8"
