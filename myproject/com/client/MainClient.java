@@ -1,9 +1,9 @@
-package javaProject.com.client;
+package myproject.com.client;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
 
-import javaProject.com.server.Server;
+import myproject.com.server.Server;
 
 /**
  * Main

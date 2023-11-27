@@ -1,4 +1,4 @@
-package javaProject.com.client;
+package myproject.com.client;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,9 +6,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.rmi.server.ServerCloneException;
 
-import javaProject.com.server.ServerAction;
+import myproject.com.server.ServerAction;
 
 public class Client {
     private Socket socket;

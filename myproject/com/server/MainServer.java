@@ -1,4 +1,4 @@
-package javaProject.com.server;
+package myproject.com.server;
 
 /**
  * Main
