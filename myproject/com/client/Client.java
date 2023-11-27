@@ -55,7 +55,9 @@ public class Client {
         System.out.println("\nClient is waiting for an action.");
         int actionIndex = Integer.parseInt(serverReader.readLine());
 
-        return ServerAction.values()[actionIndex];
+        ServerAction action = ServerAction.values()[actionIndex];
+        System.out.println("Action " + action + " received");
+        return action;
     }
 
     private void handleRequestClientName() throws IOException {
