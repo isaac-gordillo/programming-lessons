@@ -10,9 +10,13 @@ import myproject.com.server.Server;
  */
 public class MainClient {
 
-    public static void main(String[] args) throws UnknownHostException, IOException {
-        Client client = new Client("localhost", Server.PORT);
+    public static void main(String[] args)  {
+        try {
+            Client client = new Client("localhost", Server.PORT);
 
-        client.run();
+            client.run();
+        } catch (ClassNotFoundException | IOException e) {
+            e.printStackTrace();
+        }
     }
 }
