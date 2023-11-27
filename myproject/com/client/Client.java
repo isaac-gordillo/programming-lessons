@@ -29,7 +29,7 @@ public class Client {
     }
 
     public void run() throws IOException, ClassNotFoundException {
-        // Cliente espera a recibir una
+        // Cliente espera a recibir una "Action" a realizar
         CommnunicationAction action;
         while ((action = listenActionFromServer()) != CommnunicationAction.EXIT) {
             switch (action) {
