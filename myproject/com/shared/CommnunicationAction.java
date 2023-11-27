@@ -1,6 +1,6 @@
-package myproject.com.server;
+package myproject.com.shared;
 
-public enum ServerAction {
+public enum CommnunicationAction {
     REQUEST_CLIENT_NAME,
     REQUEST_TASKS,
     SEND_TASKS,
