@@ -1,29 +1,28 @@
 package myproject.com.client;
 
+import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.util.Scanner;
-
 import myproject.com.server.Task;
 import myproject.com.shared.CommnunicationAction;
 
 public class Client {
-    private Socket socket;
-    private DataInputStream serverReader;
-    private Scanner userReader;
-    private DataOutputStream serverWriter;
-    private ObjectInputStream serverObjectReader;
+    private final Socket socket;
+    private final DataInputStream serverReader;
+    private final BufferedReader userReader;
+    private final DataOutputStream serverWriter;
+    private final ObjectInputStream serverObjectReader;
 
     public Client(String host, int puerto) throws UnknownHostException, IOException {
         // Cliente se conecta
         socket = new Socket(host, puerto);
-
         serverReader = new DataInputStream(socket.getInputStream());
-        userReader = new Scanner(System.in);
+        userReader = new BufferedReader(new InputStreamReader(System.in));
         serverWriter = new DataOutputStream(socket.getOutputStream());
         serverObjectReader = new ObjectInputStream(socket.getInputStream());
     }
@@ -62,15 +61,14 @@ public class Client {
 
     private void handleRequestClientName() throws IOException {
         System.out.println("Please, insert you name");
-        String clientName = userReader.next();
+        String clientName = userReader.readLine();
         serverWriter.writeUTF(clientName);
 
     }
 
     private void handleRequestTasks() throws IOException {
         // Cliente solicita nombre al usuario
-        System.out.println("Please, insert number of tasks to do");
-        int numberOfTaskToDo = userReader.nextInt();
+        int numberOfTaskToDo = requestIntegerInputToUser("Please, insert number of tasks to do");
 
         // Cliente envía nº de tareas a realizar
         serverWriter.writeInt(numberOfTaskToDo);
@@ -81,13 +79,13 @@ public class Client {
             // Cliente solicita al usuario la descripción de la tarea y se la envía al
             // servidor
             System.out.println("Please, insert a description for task number " + taskNumber);
-            String description = userReader.next();
-            serverWriter.writeUTF(description);
+            String description = userReader.readLine();
+            serverWriter.writeUTF(description.toString());
 
             // Cliente solicita al usuario el estado de la tarea y se la envía al servidor
             System.out.println("Please, insert the status for task number " + taskNumber);
-            String status = userReader.next();
-            serverWriter.writeUTF(status);
+            String status = userReader.readLine();
+            serverWriter.writeUTF(status.toString());
         }
     }
 
@@ -106,6 +104,21 @@ public class Client {
         serverReader.close();
         serverWriter.close();
         socket.close();
+    }
+
+    private int requestIntegerInputToUser(String message) throws IOException {
+        Integer insertedNumber = null;
+
+        System.out.println(message);
+        while (true) {
+            try {
+                insertedNumber = Integer.parseInt(userReader.readLine());
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("The entered value is not a valid number. Please provide a valid numerical input.");
+            }
+        }
+        return insertedNumber.intValue();
     }
 
 }

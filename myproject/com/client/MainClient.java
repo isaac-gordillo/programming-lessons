@@ -1,8 +1,6 @@
 package myproject.com.client;
 
 import java.io.IOException;
-import java.net.UnknownHostException;
-
 import myproject.com.server.Server;
 
 /**

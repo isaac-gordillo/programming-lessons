@@ -24,7 +24,7 @@ public class Server {
             // Inicia Servidor
             System.out.println("\nServer is waiting for connection");
             Socket clientSocket = serverSocket.accept();
-            System.out.println("client connected from " + clientSocket.getInetAddress().getAddress());
+            System.out.println("client connected from " + clientSocket.getInetAddress().getHostAddress());
 
             DataOutputStream clientWriter = new DataOutputStream(clientSocket.getOutputStream());
             DataInputStream clientReader = new DataInputStream(clientSocket.getInputStream());
